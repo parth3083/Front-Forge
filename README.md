@@ -22,8 +22,6 @@ Frontend:
 
 React: For building the user interface.
 <br>
-Next.js: For server-side rendering and static site generation.
-<br>
 Redux & Redux Toolkit: For state management.
 <br>
 React Router DOM: For handling routing within the application.
