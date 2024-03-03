@@ -13,5 +13,5 @@ app.get('/', (req: Request, res: Response) => {
 dbConnect();
 app.use('/compiler',compilerRouter)
 app.listen(4000, () => {
-    console.log("https://front-forge-3.onrender.com")
+    console.log("http://localhost:4000")
 }); 
