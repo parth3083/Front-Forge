@@ -11,11 +11,11 @@ function Home() {
       </p>
       <Link to="/compiler">
         <motion.div
-            whileHover={{
-              scale: 1.2,
-              transition: { duration: 0.1 },
-            }}
-            whileTap={{ scale: 0.9 }}
+          whileHover={{
+            scale: 1.2,
+            transition: { duration: 0.1 },
+          }}
+          whileTap={{ scale: 0.9 }}
         >
           <Button className="text-lg" variant="paint">
             Get Started
