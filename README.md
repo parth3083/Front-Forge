@@ -18,6 +18,7 @@ Technology Stack:
 <br>
 Frontend:
 <br>
+<br>
 React: For building the user interface.
 <br>
 Next.js: For server-side rendering and static site generation.
