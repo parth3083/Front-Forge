@@ -16,9 +16,10 @@ Error Reporting: Get immediate feedback on any errors in your code, helping you 
 <br>
 Technology Stack:
 <br>
+<br>
 Frontend:
 <br>
-<br>
+
 React: For building the user interface.
 <br>
 Next.js: For server-side rendering and static site generation.
