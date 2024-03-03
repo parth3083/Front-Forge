@@ -19,7 +19,6 @@ Technology Stack:
 <br>
 Frontend:
 <br>
-
 React: For building the user interface.
 <br>
 Redux & Redux Toolkit: For state management.
