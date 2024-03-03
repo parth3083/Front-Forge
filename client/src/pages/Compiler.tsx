@@ -6,8 +6,37 @@ import {
     ResizablePanel,
     ResizablePanelGroup,
   } from "@/components/ui/resizable"
+import { handleError } from "@/utils/handleError"
+import { useEffect } from "react"
+import { useParams } from "react-router-dom"
+import axios from 'axios'
+import { useDispatch } from "react-redux"
+import { updateLoadCode } from "@/redux/slices/compilerSlice"
+import { toast } from "sonner"
   
 function Compiler() {
+  const { urlId } = useParams();
+  const dispatch = useDispatch();
+  const loadCode = async () => {
+    try {
+      const response = await axios.post('http://localhost:4000/compiler/load', {
+        urlId: urlId,
+      });
+      dispatch(updateLoadCode(response.data.fullCode))
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        if (error?.response?.status === 500) {
+          toast("Invalid URL, default code loaded");
+        }
+      }
+      handleError(error);
+    }
+  }
+  useEffect(() => {
+    if (urlId) {
+      loadCode();
+    }
+  },[urlId])
   return (
     <ResizablePanelGroup
     direction="horizontal"
