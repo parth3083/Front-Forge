@@ -11,16 +11,29 @@ import {
   } from "@/components/ui/select"
 import { useDispatch, useSelector } from 'react-redux'
 import { CounterStatetype, updateCurrentLanguage } from '@/redux/slices/compilerSlice';
+import axios from 'axios'
+import { handleError } from '@/utils/handleError'
 
 function Editor_Header() {
+  const fullCode = useSelector((state: RootState) => state.compilerSlice.fullcode);
     const dispatch = useDispatch();
     const defaultLanguage = useSelector(
         (state: RootState) => state.compilerSlice.currentLanguage
-    ) 
+  ) 
+  const handleSaveCode = async () => {
+    try {
+      const response = await axios.post("http://localhost:4000/compiler/save", {
+        fullCode: fullCode
+      });
+      console.log(response.data);
+    } catch (error) {
+      handleError(error);
+    }
+  }
   return (
       <div className='h-[50px] bg-black text-white flex items-center justify-between py-4 px-4 rounded-md '>
           <div className='flex items-center gap-2'>
-              <Button className='flex items-center gap-2' variant="success"><Save size={16} />Save</Button>
+              <Button onClick={handleSaveCode} className='flex items-center gap-2' variant="success"><Save size={16} />Save</Button>
               <Button className='flex items-center gap-2' variant="secondary"><Share2 size={16} />Share</Button>
           </div>
           <div className='flex items-center gap-2'>
