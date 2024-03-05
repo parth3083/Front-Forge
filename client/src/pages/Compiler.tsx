@@ -19,7 +19,7 @@ function Compiler() {
   const dispatch = useDispatch();
   const loadCode = async () => {
     try {
-      const response = await axios.post('https://front-forge-8.onrender.com/compiler/load', {
+      const response = await axios.post(`https://front-forge.netlify.app/compiler/load`, {
         urlId: urlId,
       });
       dispatch(updateLoadCode(response.data.fullCode))
